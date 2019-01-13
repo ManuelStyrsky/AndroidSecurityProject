@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".PedelecActivity">
+    <item android:id="@+id/FindTable" android:title="Find Table"
+        app:showAsAction="never" />
+    <item android:id="@+id/MyReservations" android:title="My Reservations"
+        app:showAsAction="never" />
+    <item android:id="@+id/Settings" android:title="Settings"
+        app:showAsAction="never" />
+    <item android:id="@+id/Logout" android:title="Log out"
+        app:showAsAction="never" />
+    <item android:id="@+id/Help" android:title="Help"
+        app:showAsAction="never" />
+</menu>

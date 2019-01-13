@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.HomeActivity">
+
+    <ImageView
+        android:id="@+id/Greybar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/greyrectangle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow
+        android:id="@+id/TableInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/Greybar"
+        app:layout_constraintStart_toStartOf="@+id/Greybar"
+        app:layout_constraintTop_toTopOf="@+id/Greybar">
+
+        <ImageButton
+            android:id="@+id/ButtonTime"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_access_time_black_24dp"
+            tools:layout_editor_absoluteX="243dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextTime"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/time"
+            android:inputType="time"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/ButtonDate"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_date_range_black_24dp"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="280dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextDate"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/date"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/ButtonSeats"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_group_black_24dp"
+            tools:layout_editor_absoluteX="112dp"
+            tools:layout_editor_absoluteY="322dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextSeats"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/seats"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <ImageView
+        android:id="@+id/ImageTabely"
+        android:layout_width="300dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableInfo"
+        app:layout_constraintVertical_bias="0.13999999"
+        app:srcCompat="@drawable/tabelylogo" />
+
+    <TableLayout
+        android:id="@+id/TableMatrix1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableInfo"
+        app:layout_constraintVertical_bias="0.55">
+
+        <TableRow
+            android:id="@+id/TableSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="124dp">
+
+            <ImageView
+                android:id="@+id/IconSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_search_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextSearch"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/search_restaurant"
+                android:inputType="textPersonName"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="160dp"
+                tools:layout_editor_absoluteY="331dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/IconLocation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_place_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextAddress"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/location"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/ButtonFilter"
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/todo"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableInfo"
+        app:layout_constraintVertical_bias="0.9"
+        app:srcCompat="@drawable/ic_filter_list_black_24dp" />
+
+    <TextView
+        android:id="@+id/TextUserId"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/todo"
+        android:text="HALLO"
+        app:layout_constraintEnd_toEndOf="@+id/Greybar"
+        app:layout_constraintTop_toTopOf="@+id/TableInfo" />
+
+    <Button
+        android:id="@+id/ButtonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/reservebutton"
+        android:text="@string/s_e_a_r_c_h"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+

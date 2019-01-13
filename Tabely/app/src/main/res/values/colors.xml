@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e70000</color>
+    <color name="colorPrimaryDark">#d80303</color>
+    <color name="colorAccent">#e70000</color>
+    <color name="tabelyaccent">#e70000</color>
+    <color name="tabelycolor">#e70000</color>
+    <color name="lightgrey">#dbd9d9</color>
+    <color name="grey">#a2a2a2</color>
+    <color name="darkgrey">#6e6e6e</color>
+    <color name="ratingyellow">#ffed23</color>
+    <color name="texthighlight">#9b0b2e</color>
+    <color name="black">#1d1d1d</color>
+    <color name="darkdarkgrey">#4a4a4a</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#0d35e6</color>
+    <color name="green">#23e60d</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>
+
