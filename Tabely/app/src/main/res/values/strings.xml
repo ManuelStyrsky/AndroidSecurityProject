@@ -62,4 +62,9 @@
     <string name="cancel">cancel</string>
     <string name="success">Success!</string>
     <string name="save_event_in_my_calendar">Save event in my calendar</string>
+    <string name="daily_offer">Daily Offer</string>
+    <string name="hallo">HALLO</string>
+    <string name="title_activity_offer">OfferActivity</string>
+    <string name="daily_offer2">Daily Offer!</string>
+    <string name="tabely_has_exclusive_daily_offers_for_our_customers_click_here_to_claim_your_deal">Tabely has exclusive daily offers for our customers. Click here to claim your deal!</string>
 </resources>

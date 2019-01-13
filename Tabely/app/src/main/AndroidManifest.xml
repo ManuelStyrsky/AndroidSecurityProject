@@ -44,6 +44,7 @@
         <activity android:name="net.hockeyapp.android.FeedbackActivity" />
         <activity android:name="net.hockeyapp.android.PaintActivity" />
         <activity android:name=".view.MyReservationsActivity" />
+        <activity android:name=".view.OfferActivity"></activity>
     </application>
 
 </manifest>

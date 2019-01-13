@@ -41,9 +41,9 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
     private ImageButton buttonTime;
     private ImageButton buttonDate;
     private ImageButton buttonSeats;
-    private ImageButton buttonFilter;
 
     private Button buttonSearch;
+    private Button buttonOffer;
 
     private RestaurantRequest request;
 
@@ -66,7 +66,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         buttonTime = findViewById(R.id.ButtonTime);
         buttonDate = findViewById(R.id.ButtonDate);
         buttonSeats = findViewById(R.id.ButtonSeats);
-        buttonFilter = findViewById(R.id.ButtonFilter);
+        buttonOffer = findViewById(R.id.ButtonOffer);
         buttonSearch = findViewById(R.id.ButtonSearch);
         buttonSearch.setEnabled(false);
 
@@ -107,11 +107,11 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
             }
         });
 
-        //buttonFilter functionality
-        buttonFilter.setOnClickListener(new View.OnClickListener() {
+        //buttonOffer functionality
+        buttonOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(request.createIntent(HomeActivity.this, new FilterActivity()));
+                startActivity(request.createIntent(HomeActivity.this, new OfferActivity()));
             }
         });
 

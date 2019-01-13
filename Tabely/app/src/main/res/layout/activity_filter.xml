@@ -163,7 +163,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
 
@@ -185,7 +185,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
         </TableRow>
@@ -210,7 +210,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
             <CheckBox
@@ -231,7 +231,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
         </TableRow>
@@ -271,7 +271,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
 
@@ -293,7 +293,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
             <CheckBox
@@ -314,7 +314,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
         </TableRow>
@@ -354,7 +354,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
 
@@ -376,7 +376,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
             <CheckBox
@@ -397,7 +397,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.388"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/TextBlock"
                 app:layout_constraintVertical_bias="0.054" />
 
         </TableRow>
