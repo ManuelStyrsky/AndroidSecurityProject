@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RegisterActivity">
+
+
+    <TableLayout
+        android:id="@+id/TableMatrix1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.7">
+
+        <TableRow
+            android:id="@+id/UsernameRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/username_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_person_outline_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextUsername"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/username"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+
+
+
+
+        <TableRow
+            android:id="@+id/TablePassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/password_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_lock_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextPassword"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TablePasswordrepeat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/Passwordrepeat_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_lock_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextConfirmPassword"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/confirmPassword"
+                android:inputType="textPassword"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/TableMatrix2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.37">
+
+        <TableRow
+            android:id="@+id/TableFullname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/FullName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_face_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextFullName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/FullName"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/emailAddress_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_email_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextEmail"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Email"
+                android:inputType="textEmailAddress"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+
+
+
+    <Button
+        android:id="@+id/ButtonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/reservebutton"
+        android:text="@string/signup"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/personaldata"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+
+</android.support.constraint.ConstraintLayout>

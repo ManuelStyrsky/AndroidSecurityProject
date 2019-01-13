@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="view.RestaurantDetailsActivity">
+
+
+    <ImageView
+        android:id="@+id/grey_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/greyrectangle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonreserve"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/reservebutton"
+        android:contentDescription="@string/todo"
+        android:text="@string/r_e_s_e_r_v_e"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPriceRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/PriceRange"
+        android:textColor="@color/darkdarkgrey"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonreserve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableDetails"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <TableRow
+        android:id="@+id/TableInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/grey_rectangle"
+        app:layout_constraintStart_toStartOf="@+id/grey_rectangle"
+        app:layout_constraintTop_toTopOf="@+id/grey_rectangle">
+
+        <ImageButton
+            android:id="@+id/ButtonTime"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_access_time_black_24dp"
+            tools:layout_editor_absoluteX="243dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextTime"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/time"
+            android:inputType="time"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/ButtonDate"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_date_range_black_24dp"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="280dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextDate"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/date"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/ButtonSeats"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="@string/todo"
+            android:tint="@color/black"
+            app:srcCompat="@drawable/ic_group_black_24dp"
+            tools:layout_editor_absoluteX="112dp"
+            tools:layout_editor_absoluteY="322dp" />
+
+        <Space
+            android:layout_width="4dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/TextSeats"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/seats"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <TableLayout
+        android:id="@+id/TableDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableInfo">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewRestaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteX="130dp"
+                tools:layout_editor_absoluteY="65dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="8dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewCuisine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuisine"
+                android:textColor="@color/darkdarkgrey"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="130dp"
+                tools:layout_editor_absoluteY="141dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adress"
+                android:textColor="@color/darkdarkgrey"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="130dp"
+                tools:layout_editor_absoluteY="141dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textColor="@color/darkdarkgrey"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="182dp"
+                tools:layout_editor_absoluteY="191dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/website"
+                android:textColor="@color/darkdarkgrey"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="138dp"
+                tools:layout_editor_absoluteY="217dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textColor="@color/darkdarkgrey"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="300dp"
+                tools:layout_editor_absoluteY="249dp" />
+        </TableRow>
+    </TableLayout>
+
+    <TableRow
+        android:id="@+id/TableBasic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonreserve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableDetails"
+        app:layout_constraintVertical_bias="0.17000002">
+
+        <TableRow
+            android:id="@+id/TableRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonreserve"
+            app:layout_constraintEnd_toStartOf="@+id/ratingbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TableDetails"
+            app:layout_constraintVertical_bias="0.13999999">
+
+            <TextView
+                android:id="@+id/textViewOpeningTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open"
+                android:textColor="@color/tabelycolor"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="174dp"
+                tools:layout_editor_absoluteY="166dp" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewStaticUntil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Until" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewClosingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/close"
+                android:textColor="@color/tabelycolor"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="219dp"
+                tools:layout_editor_absoluteY="166dp" />
+        </TableRow>
+
+        <Space
+            android:layout_width="32dp"
+            android:layout_height="wrap_content" />
+
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_marginTop="8dp"
+            android:clickable="false"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="3.3"
+            android:stepSize="0.1"
+            app:layout_constraintBottom_toTopOf="@+id/buttonreserve"
+            app:layout_constraintEnd_toStartOf="@+id/textViewPriceRange"
+            app:layout_constraintTop_toBottomOf="@+id/TableDetails"
+            app:layout_constraintVertical_bias="0.138" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonreserve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableBasic">
+
+        <Button
+            android:id="@+id/buttontimeleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/timebutton"
+            android:text="@string/_18_00"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="312dp" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttontimemiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/timebutton"
+            android:text="@string/_18_30"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="155dp"
+            tools:layout_editor_absoluteY="312dp" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttontimeright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/timebutton"
+            android:text="@string/_19_00"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="312dp" />
+    </TableRow>
+
+
+</android.support.constraint.ConstraintLayout>
+

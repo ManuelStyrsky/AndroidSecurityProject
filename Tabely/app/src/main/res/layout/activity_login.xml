@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.LoginActivity">
+
+    <TableLayout
+        android:id="@+id/TableMatrix1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.543">
+
+        <TableRow
+            android:id="@+id/TableSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/IconSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_person_outline_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextUsername"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/username"
+                android:inputType="textPersonName"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TablePassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/IconPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_lock_black_24dp" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/TextPassword"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/ButtonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/reservebutton"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/ButtonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/screen_background_light"
+        android:text="@string/register"
+        android:textColor="@color/darkgrey"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/ButtonLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TableMatrix1"
+        app:layout_constraintVertical_bias="0.592" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="298dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/welcome"
+        android:textSize="30sp"
+        android:textColor="@color/tabelycolor"
+        app:layout_constraintBottom_toTopOf="@+id/TableMatrix1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685" />
+
+    <ImageButton
+        android:id="@+id/ButtonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/screen_background_light"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_more_vert_black_24dp" />
+
+
+</android.support.constraint.ConstraintLayout>
