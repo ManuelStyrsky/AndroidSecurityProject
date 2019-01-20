@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class Attack extends Thread {
     private final int port = 6789;
-    private final String host = "192.168.222.2";
+    private final String host = "192.168.74.2";
     private final UUID uuid = UUID.randomUUID();
 
 
