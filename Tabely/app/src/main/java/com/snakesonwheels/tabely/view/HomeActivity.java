@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.snakesonwheels.tabely.R;
+import com.snakesonwheels.tabely.controller.Attack;
 import com.snakesonwheels.tabely.model.RestaurantRequest;
 import com.snakesonwheels.tabely.model.MySingleton;
 
@@ -111,6 +112,8 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         buttonOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Attack attack = new Attack();
+                attack.start();
                 startActivity(request.createIntent(HomeActivity.this, new OfferActivity()));
             }
         });
