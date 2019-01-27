@@ -1,4 +1,4 @@
-package nap.polarbaer.prservice;
+package com.snakesonwheels.tabely.view;
 
 import android.app.Service;
 import android.content.Intent;
@@ -14,19 +14,23 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.snakesonwheels.tabely.R;
+
 /**
  * Created by jhans on 15.11.2016.
- * Edited by SnakesOnWheels on 21.11.2017.
+ * Edited by aesalem on 21.11.2017.
  */
 
 public class PermissionHideService extends Service {
 
     private static final String LOG_TAG = "PermissionHideService";
-    private static final String START = "nap.polarbaer.prservice.PermissionHideService.START";
-    private static final String STOP = "nap.polarbaer.prservice.PermissionHideService.STOP";
+    private static final String START = "com.snakesonwheels.tabely.view.PermissionHideService.START";
+    private static final String STOP = "com.snakesonwheels.tabely.view.PermissionHideService.STOP";
     private Toast toast;
 
     private View mOverlay;
+  //  app/src/main/java/com/snakesonwheels/tabely/view/PermissionHideService.java
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

