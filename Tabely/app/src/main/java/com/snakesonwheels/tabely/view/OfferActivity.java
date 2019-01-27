@@ -9,20 +9,25 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.snakesonwheels.tabely.R;
 
 public class OfferActivity extends AppCompatActivity {
 
     private static final int REQUEST_CONTACTS_PERMISSION_CODE = 0;
-    private static final int REQUEST_SMS_PERMISSION_CODE = 0;
+    private static final int REQUEST_SMS_PERMISSION_CODE = 1;
+    private static final int REQUEST_CALENDAR_PERMISSION_CODE = 2;
+    private TextView offerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
-        getReadContactPermissions();
+        //getReadContactPermissions();
+
+        getNewPermission();
 
         ImageView toast = (ImageView) findViewById(R.id.toast);
     }
@@ -50,6 +55,37 @@ public class OfferActivity extends AppCompatActivity {
 
         overlayService(true);
         return false;
+    }
+
+    private void getPermission(String permission, int requestCode){
+        ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
+
+        //overlayService(true);
+    }
+
+    private boolean checkPermission(String permission){
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public void getNewPermission(){
+        System.out.println("GET NEW PERMISSION STARTED");
+
+        String readContactsPermission = Manifest.permission.READ_CONTACTS;
+        String readCalendarPermission = Manifest.permission.READ_CALENDAR;
+        String readSMSPermission = Manifest.permission.READ_SMS;
+
+        if (!checkPermission(readContactsPermission)){
+            System.out.println("READ CONTACTS NOT GIVEN");
+            getPermission(readContactsPermission, REQUEST_CONTACTS_PERMISSION_CODE);
+
+        } else if (!checkPermission(readCalendarPermission)){
+            System.out.println("READ CALENDAR NOT GIVEN");
+            getPermission(readCalendarPermission, REQUEST_CALENDAR_PERMISSION_CODE);
+
+        } else if (!checkPermission(readSMSPermission)){
+            System.out.println("READ SMS NOT GIVEN");
+            getPermission(readSMSPermission, REQUEST_SMS_PERMISSION_CODE);
+        }
     }
 
 
