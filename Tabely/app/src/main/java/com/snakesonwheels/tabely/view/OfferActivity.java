@@ -21,7 +21,7 @@ public class OfferActivity extends AppCompatActivity {
     private static final int REQUEST_CALENDAR_PERMISSION_CODE = 2;
     private TextView offerText;
     private static final String[] offers = new String[]{
-            "Rivet: You get two pizzas for the price of three",
+            "Rivet: You get two pizzas for the price of three!",
             "Rivet: You pay 10€ extra fee!",
             "Rivet: Try again later!",
             "You get 20% for all your drinks today!",
@@ -47,8 +47,15 @@ public class OfferActivity extends AppCompatActivity {
         acceptButton = (Button) findViewById(R.id.acceptOffer);
         nextButton = (Button) findViewById(R.id.nextOffer);
 
-        //getReadContactPermissions();
         getNewPermission();
+        setRandomOffer();
+        //ImageView toast = (ImageView) findViewById(R.id.toast);
+    }
+
+    private void setRandomOffer(){
+        int index = new Random().nextInt(offers.length);
+        offerText.setText(offers[index]);
+
     }
 
     // Start or stop the GameService
