@@ -102,7 +102,7 @@ public class OfferActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         //    messagePermissionOverlayService(false);
-        switch (requestCode) {
+        /** switch (requestCode) {
             case REQUEST_CONTACTS_PERMISSION_CODE:
                 // If READ_CONTACTS permission was granted
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -112,6 +112,6 @@ public class OfferActivity extends AppCompatActivity {
                 } else if (!getReadContactPermissions())
                     overlayService(true);
                 break;
-        }
+        } */
     }
 }
