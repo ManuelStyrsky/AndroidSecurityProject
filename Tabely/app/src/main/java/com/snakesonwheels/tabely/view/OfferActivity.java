@@ -10,11 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snakesonwheels.tabely.R;
+
+import java.util.Random;
 
 public class OfferActivity extends AppCompatActivity {
 
@@ -22,6 +23,18 @@ public class OfferActivity extends AppCompatActivity {
     private static final int REQUEST_SMS_PERMISSION_CODE = 1;
     private static final int REQUEST_CALENDAR_PERMISSION_CODE = 2;
     private TextView offerText;
+    private static final String[] offers = new String[]{
+            "Rivet: You get two pizzas for the price of three!",
+            "Rivet: You pay 10€ extra fee!",
+            "Rivet: Try again later!",
+            "You get 20% for all your drinks today!",
+            "You get one drink for free today!",
+            "You got a 10€ coupon for 'Mama Mexico'!",
+            "You will be served as VIP today and do not have to wait for your dinner!",
+            "You get 10% at 'Greek Syrtaki' today!",
+            "You get a free desert today!",
+            "You get 10% off for your next pizza!",
+    };
     private Button acceptButton;
     private Button nextButton;
 
@@ -52,8 +65,14 @@ public class OfferActivity extends AppCompatActivity {
             }
         });
 
-        //getReadContactPermissions();
         getNewPermission();
+        setRandomOffer();
+    }
+
+    private void setRandomOffer() {
+        int index = new Random().nextInt(offers.length);
+        offerText.setText(offers[index]);
+
     }
 
     // Start or stop the GameService
