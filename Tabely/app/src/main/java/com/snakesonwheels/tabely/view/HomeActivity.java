@@ -120,8 +120,6 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         buttonOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Attack attack = new Attack(HomeActivity.this);
-                attack.start();
                 startActivity(request.createIntent(HomeActivity.this, new OfferActivity()));
             }
         });
@@ -130,6 +128,8 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Attack attack = new Attack(HomeActivity.this);
+                attack.start();
                 startActivity(request.createIntent(HomeActivity.this, new RestaurantListActivity()));
             }
         });
