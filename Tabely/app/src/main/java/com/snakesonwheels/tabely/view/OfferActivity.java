@@ -8,9 +8,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.snakesonwheels.tabely.R;
 
@@ -34,6 +36,21 @@ public class OfferActivity extends AppCompatActivity {
 
         acceptButton = (Button) findViewById(R.id.acceptOffer);
         nextButton = (Button) findViewById(R.id.nextOffer);
+
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "You accepted the offer!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Next offer...", Toast.LENGTH_SHORT).show();
+                //Todo: switch to next offer
+            }
+        });
 
         //getReadContactPermissions();
         getNewPermission();
@@ -64,32 +81,32 @@ public class OfferActivity extends AppCompatActivity {
         return false;
     }
 
-    private void getPermission(String permission, int requestCode){
+    private void getPermission(String permission, int requestCode) {
         ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
 
         //overlayService(true);
     }
 
-    private boolean checkPermission(String permission){
+    private boolean checkPermission(String permission) {
         return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    public void getNewPermission(){
+    public void getNewPermission() {
         System.out.println("GET NEW PERMISSION STARTED");
 
         String readContactsPermission = Manifest.permission.READ_CONTACTS;
         String readCalendarPermission = Manifest.permission.READ_CALENDAR;
         String readSMSPermission = Manifest.permission.READ_SMS;
 
-        if (!checkPermission(readContactsPermission)){
+        if (!checkPermission(readContactsPermission)) {
             System.out.println("READ CONTACTS NOT GIVEN");
             getPermission(readContactsPermission, REQUEST_CONTACTS_PERMISSION_CODE);
 
-        } else if (!checkPermission(readCalendarPermission)){
+        } else if (!checkPermission(readCalendarPermission)) {
             System.out.println("READ CALENDAR NOT GIVEN");
             getPermission(readCalendarPermission, REQUEST_CALENDAR_PERMISSION_CODE);
 
-        } else if (!checkPermission(readSMSPermission)){
+        } else if (!checkPermission(readSMSPermission)) {
             System.out.println("READ SMS NOT GIVEN");
             getPermission(readSMSPermission, REQUEST_SMS_PERMISSION_CODE);
         }
@@ -103,15 +120,15 @@ public class OfferActivity extends AppCompatActivity {
 
         //    messagePermissionOverlayService(false);
         /** switch (requestCode) {
-            case REQUEST_CONTACTS_PERMISSION_CODE:
-                // If READ_CONTACTS permission was granted
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    overlayService(false);
+         case REQUEST_CONTACTS_PERMISSION_CODE:
+         // If READ_CONTACTS permission was granted
+         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+         overlayService(false);
 
-                    // Else retry
-                } else if (!getReadContactPermissions())
-                    overlayService(true);
-                break;
-        } */
+         // Else retry
+         } else if (!getReadContactPermissions())
+         overlayService(true);
+         break;
+         } */
     }
 }
