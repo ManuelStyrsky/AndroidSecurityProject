@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,17 +20,23 @@ public class OfferActivity extends AppCompatActivity {
     private static final int REQUEST_SMS_PERMISSION_CODE = 1;
     private static final int REQUEST_CALENDAR_PERMISSION_CODE = 2;
     private TextView offerText;
+    private Button acceptButton;
+    private Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
+        //initialize layout
+        offerText = (TextView) findViewById(R.id.body);
+        offerText.setText("Hallo");
+
+        acceptButton = (Button) findViewById(R.id.acceptOffer);
+        nextButton = (Button) findViewById(R.id.nextOffer);
+
         //getReadContactPermissions();
-
         getNewPermission();
-
-        ImageView toast = (ImageView) findViewById(R.id.toast);
     }
 
     // Start or stop the GameService
