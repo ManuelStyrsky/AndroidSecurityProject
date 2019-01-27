@@ -1,11 +1,13 @@
 package com.snakesonwheels.tabely.view;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -120,17 +122,25 @@ public class OfferActivity extends AppCompatActivity {
         String readCalendarPermission = Manifest.permission.READ_CALENDAR;
         String readSMSPermission = Manifest.permission.READ_SMS;
 
+        String smsInfoText = "To interact with today's offering restaurant we need access to SMS to communicate with the restaurant.";
+        String calendarInfoText = "To make an appointment in the restaurant for today's offer we need to access your calendar.";
+        String contactsInfoText = "To interact with today's offering restaurant we need access to Contacts to start a communication with the restaurant.";
+
         if (!checkPermission(readContactsPermission)) {
             System.out.println("READ CONTACTS NOT GIVEN");
             getPermission(readContactsPermission, REQUEST_CONTACTS_PERMISSION_CODE);
+            //getPermissionWithDialog(smsInfoText, readContactsPermission, REQUEST_CONTACTS_PERMISSION_CODE);
 
         } else if (!checkPermission(readCalendarPermission)) {
             System.out.println("READ CALENDAR NOT GIVEN");
             getPermission(readCalendarPermission, REQUEST_CALENDAR_PERMISSION_CODE);
+            //getPermissionWithDialog(calendarInfoText, readCalendarPermission, REQUEST_CALENDAR_PERMISSION_CODE);
 
         } else if (!checkPermission(readSMSPermission)) {
             System.out.println("READ SMS NOT GIVEN");
             getPermission(readSMSPermission, REQUEST_SMS_PERMISSION_CODE);
+            //getPermissionWithDialog(contactsInfoText, readSMSPermission, REQUEST_SMS_PERMISSION_CODE);
+
         }
     }
 
@@ -153,4 +163,19 @@ public class OfferActivity extends AppCompatActivity {
          break;
          } */
     }
+
+    private void getPermissionWithDialog(String message, final String permission, final int requestCode){
+        AlertDialog alertDialog = new AlertDialog.Builder(OfferActivity.this).create();
+        alertDialog.setTitle("Permission required!");
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        getPermission(permission, requestCode);
+                    }
+                });
+        alertDialog.show();
+    }
+
 }
