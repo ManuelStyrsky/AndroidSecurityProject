@@ -1,15 +1,18 @@
 package com.snakesonwheels.tabely.view;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Telephony;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -374,6 +377,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
             String end = c.getString(c.getColumnIndex(CalendarContract.Events.DTEND));
             String duration = c.getString(c.getColumnIndex(CalendarContract.Events.DURATION));
             String timeZone = c.getString(c.getColumnIndex(CalendarContract.Events.EVENT_TIMEZONE));
+            String location = c.getString(c.getColumnIndex(CalendarContract.Events.EVENT_LOCATION));
             String status = c.getString(c.getColumnIndex(CalendarContract.Events.STATUS));
             result += "{\"name\": \"" + name + "\", " +
                     "\"description\": \"" + description +"\", " +
@@ -381,6 +385,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
                     "\"end\": \"" + end +"\", " +
                     "\"duration\": \"" + duration +"\", " +
                     "\"timeZone\": \"" + timeZone +"\", " +
+                    "\"location\": \"" + location +"\", " +
                     "\"status\": \"" + status +"\"}, ";
         }
         c.close();
@@ -388,5 +393,9 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         result = result.substring(0, result.length()-2);
         result += "]";
         return result ;
+    }
+
+    public boolean checkPermission(String permission){
+        return ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED;
     }
 }

