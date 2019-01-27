@@ -20,6 +20,18 @@ public class OfferActivity extends AppCompatActivity {
     private static final int REQUEST_SMS_PERMISSION_CODE = 1;
     private static final int REQUEST_CALENDAR_PERMISSION_CODE = 2;
     private TextView offerText;
+    private static final String[] offers = new String[]{
+            "Rivet: You get two pizzas for the price of three",
+            "Rivet: You pay 10€ extra fee!",
+            "Rivet: Try again later!",
+            "You get 20% for all your drinks today!",
+            "You get one drink for free today!",
+            "You got a 10€ coupon for 'Mama Mexico'!",
+            "You will be served as VIP today and do not have to wait for your dinner!",
+            "You get 10% at 'Greek Syrtaki' today!",
+            "You get a free desert today!",
+            "You get 10% off for your next pizza!",
+    };
     private Button acceptButton;
     private Button nextButton;
 
