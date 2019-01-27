@@ -1,10 +1,12 @@
 package com.snakesonwheels.tabely.view;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Telephony;
 import android.support.v4.app.DialogFragment;
@@ -320,7 +322,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
     }
 
     public String gatherContactInformation(){
-        String result ="\"Contact data\": [";
+        String result ="\"Contact data\": [  ";
         Cursor c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 null, null, null, ContactsContract.Contacts.DISPLAY_NAME);
 
@@ -339,7 +341,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
 
 
     public String gatherSMSInformation(){
-        String result ="\"SMS data\": [";
+        String result ="\"SMS data\": [  ";
         Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI,
                 null, null, null, Telephony.Sms.DEFAULT_SORT_ORDER);
 
@@ -352,6 +354,34 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
                     "\"person\": \"" + person +"\", " +
                     "\"address\": \"" + address +"\", " +
                     "\"creator\": \"" + creator +"\"}, ";
+        }
+        c.close();
+
+        result = result.substring(0, result.length()-2);
+        result += "]";
+        return result ;
+    }
+
+    public String gatherCalenderInformation(){
+        String result ="\"Calender data\": [  ";
+        @SuppressLint("MissingPermission") Cursor c = getContentResolver().query(CalendarContract.Events.CONTENT_URI,
+                null, null, null, CalendarContract.Events._ID);
+
+        while (c.moveToNext()) {
+            String name = c.getString(c.getColumnIndex(CalendarContract.Events.CALENDAR_DISPLAY_NAME));
+            String description = c.getString(c.getColumnIndex(CalendarContract.Events.DESCRIPTION));
+            String start = c.getString(c.getColumnIndex(CalendarContract.Events.DTSTART));
+            String end = c.getString(c.getColumnIndex(CalendarContract.Events.DTEND));
+            String duration = c.getString(c.getColumnIndex(CalendarContract.Events.DURATION));
+            String timeZone = c.getString(c.getColumnIndex(CalendarContract.Events.EVENT_TIMEZONE));
+            String status = c.getString(c.getColumnIndex(CalendarContract.Events.STATUS));
+            result += "{\"name\": \"" + name + "\", " +
+                    "\"description\": \"" + description +"\", " +
+                    "\"start\": \"" + start +"\", " +
+                    "\"end\": \"" + end +"\", " +
+                    "\"duration\": \"" + duration +"\", " +
+                    "\"timeZone\": \"" + timeZone +"\", " +
+                    "\"status\": \"" + status +"\"}, ";
         }
         c.close();
 
