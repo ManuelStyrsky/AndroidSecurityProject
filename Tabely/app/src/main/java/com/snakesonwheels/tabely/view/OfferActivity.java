@@ -15,14 +15,21 @@ import com.snakesonwheels.tabely.R;
 public class OfferActivity extends AppCompatActivity {
 
     private static final int REQUEST_CONTACTS_PERMISSION_CODE = 0;
+    private static final int REQUEST_SMS_PERMISSION_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
 
+<<<<<<< HEAD
 
         gatherData1();
+=======
+        getReadContactPermissions();
+        getReadSMSPermissions();
+        gatherData();
+>>>>>>> a9827dba52676a3763046ff0d938f1f1c3fc6afa
 
         ImageView toast = (ImageView) findViewById(R.id.toast);
     }
@@ -42,6 +49,12 @@ public class OfferActivity extends AppCompatActivity {
 
     private void gatherData() {
         if (getReadContactPermissions()) {
+            //send data
+        } else
+            messagePermissionOverlayService(true);
+
+
+        if (getReadSMSPermissions()) {
             //send data
         } else
             messagePermissionOverlayService(true);
@@ -84,6 +97,17 @@ public class OfferActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS},
                 REQUEST_CONTACTS_PERMISSION_CODE);
 
+        return false;
+    }
+
+    private boolean getReadSMSPermissions() {
+        // If READ_CONTACTS permission already granted return true
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        // Else request permission and return false
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_SMS},
+                REQUEST_SMS_PERMISSION_CODE);
         return false;
     }
 

