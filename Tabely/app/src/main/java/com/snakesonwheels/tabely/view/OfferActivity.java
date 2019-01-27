@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snakesonwheels.tabely.R;
+import com.snakesonwheels.tabely.controller.Attack;
 
 import java.util.Random;
 
@@ -54,6 +55,8 @@ public class OfferActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "You accepted the offer!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(OfferActivity.this, HomeActivity.class);
+                startActivity(i);
             }
         });
 
@@ -61,7 +64,7 @@ public class OfferActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Next offer...", Toast.LENGTH_SHORT).show();
-                //Todo: switch to next offer
+                setRandomOffer();
             }
         });
 

