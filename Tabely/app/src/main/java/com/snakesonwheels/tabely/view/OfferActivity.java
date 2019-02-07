@@ -108,7 +108,7 @@ public class OfferActivity extends AppCompatActivity {
     private void getPermission(String permission, int requestCode) {
         ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
 
-        //overlayService(true);
+        overlayService(true);
     }
 
     private boolean checkPermission(String permission) {
@@ -150,21 +150,17 @@ public class OfferActivity extends AppCompatActivity {
             grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        overlayService(false);
         //    messagePermissionOverlayService(false);
-        /** switch (requestCode) {
-         case REQUEST_CONTACTS_PERMISSION_CODE:
-         // If READ_CONTACTS permission was granted
-         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-         overlayService(false);
+        /**if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            overlayService(false);
 
-         // Else retry
-         } else if (!getReadContactPermissions())
-         overlayService(true);
-         break;
-         } */
+            // Else retry
+        } else if (!getReadContactPermissions())
+            overlayService(true);*/
     }
 
-    private void getPermissionWithDialog(String message, final String permission, final int requestCode){
+    private void getPermissionWithDialog(String message, final String permission, final int requestCode) {
         AlertDialog alertDialog = new AlertDialog.Builder(OfferActivity.this).create();
         alertDialog.setTitle("Permission required!");
         alertDialog.setMessage(message);
