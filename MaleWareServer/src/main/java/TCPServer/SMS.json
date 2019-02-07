@@ -1,0 +1,48 @@
+{
+  "uuid": "25783d71-9d72-4d73-94a2-9da4235e6c4a",
+  "timestamp": "1549539435572",
+  "SMS data": [
+    {
+      "body": "Hey MOON!",
+      "person": "null",
+      "address": "8142611675",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "Will you be the president's brother?",
+      "person": "null",
+      "address": "2023718423",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "Wanna hast du Geburtstag?",
+      "person": "null",
+      "address": "6012902548",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "Bist du deppad?",
+      "person": "null",
+      "address": "7406596150",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "You love olives?",
+      "person": "null",
+      "address": "6088359474",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "All about the Mooney!",
+      "person": "null",
+      "address": "8142611675",
+      "creator": "com.google.android.apps.messaging"
+    },
+    {
+      "body": "How is your brother?",
+      "person": "null",
+      "address": "4088475858",
+      "creator": "com.google.android.apps.messaging"
+    }
+  ]
+}
