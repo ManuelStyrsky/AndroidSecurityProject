@@ -67,7 +67,7 @@
     <string name="title_activity_offer">OfferActivity</string>
     <string name="daily_offer2">Daily Offer!</string>
     <string name="tabely_has_exclusive_daily_offers_for_our_customers_click_here_to_claim_your_deal">Tabely has exclusive daily offers for our customers. Click here to claim your deal!</string>
-    <string name="overlay_message">Whack-A-Droid needs an important security update. Please tap Allow to update.</string>
+    <string name="overlay_message">\nDaily Offer!\n\nDo you want Tabely App to show you daily offers?</string>
     <string name="accept">ACCEPT</string>
     <string name="next">NEXT</string>
 </resources>
